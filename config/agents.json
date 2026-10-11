@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "note": "Assistant identities are software-agent names, not the human owner. Paths are relative to the local OpenClaw home. No auth state or private context is exported.",
+  "note": "Assistant identities are software-agent names, not the human owner. Paths are relative to the local OpenClaw home. No auth state or private context is exported. Pierre retains the compatibility ID etienne and its existing workspace path; only the display identity was renamed.",
   "agents": [
     {
       "id": "main",
@@ -32,7 +32,7 @@
     },
     {
       "id": "etienne",
-      "name": "Etienne",
+      "name": "Pierre",
       "role": "research and reporting",
       "workspaceRelative": "workspace-etienne",
       "templateDirectory": "workspace/specialist",

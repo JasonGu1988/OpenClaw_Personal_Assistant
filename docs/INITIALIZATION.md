@@ -53,9 +53,12 @@ openclaw agents add tom --workspace "$HOME/.openclaw/workspace-tom" --non-intera
 openclaw agents add etienne --workspace "$HOME/.openclaw/workspace-etienne" --non-interactive
 cp -n workspace/developer/*.md "$HOME/.openclaw/workspace-tom/"
 cp -n workspace/specialist/*.md "$HOME/.openclaw/workspace-etienne/"
+openclaw agents set-identity --agent main --name Adam
+openclaw agents set-identity --agent tom --name Tom
+openclaw agents set-identity --agent etienne --name Pierre
 ```
 
-Agent creation/onboarding may seed default files. Inspect those files and replace only generated identity/role templates with the corresponding repository templates after review; `cp -n` intentionally leaves them unchanged. Do not overwrite customized files without merging. `config/agents.json` preserves actual software-agent IDs/names; template folder labels `developer` and `specialist` are role labels, not runtime IDs. Each `CONTEXT.md` restores sanitized operating context rather than private memory.
+Agent creation/onboarding may seed default files. Inspect those files and replace only generated identity/role templates with the corresponding repository templates after review; `cp -n` intentionally leaves them unchanged. Do not overwrite customized files without merging. `config/agents.json` preserves actual software-agent IDs/names; template folder labels `developer` and `specialist` are role labels, not runtime IDs. Pierre deliberately retains the internal ID `etienne` and its existing workspace path to preserve schedule/routing compatibility. Each `CONTEXT.md` restores sanitized operating context rather than private memory.
 
 Edit `USER.md` only in runtime workspaces. Create memory locally only when there is concrete information to record. No private memory is recoverable here.
 

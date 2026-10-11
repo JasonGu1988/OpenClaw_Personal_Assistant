@@ -12,7 +12,7 @@ Observed on 2026-10-10:
 | Runtime | OpenClaw 2026.9.9 (`bcfc888`), macOS, Node.js 26.3.0 |
 | Python | Python 3.13.12; isolated virtual environment recommended |
 | Gateway | Local, loopback-only, port 18790, token authentication |
-| Agents | Adam (`main`), Tom (`tom`), Etienne (`etienne`); software-agent identities retained, human profile excluded |
+| Agents | Adam (`main`), Tom (`tom`), Pierre (`etienne`); software-agent identities retained, human profile excluded |
 | Default model | `openai/gpt-6.1-sol` |
 | Additional allowed models | `openai/gpt-6-astra`, `openai/gpt-6-sol`, `openai/gpt-6-luna` |
 | Heartbeat model | `openai/gpt-6-luna`, coordinated by `main` |

@@ -8,7 +8,7 @@ This is a deliberately authored summary of reusable agent/workflow context, not 
 | --- | --- | --- | --- |
 | `main` | Adam | Everyday-work coordinator, email support, technical investigation | Owns delegation and validation |
 | `tom` | Tom | Coding and debugging | Awakened/delegated to by Adam; Adam validates results |
-| `etienne` | Etienne | Evidence-based research and reporting | Owns scoped market research; never trades or accesses brokerage logins |
+| `etienne` | Pierre | Evidence-based research and reporting | Owns scoped market research; never trades or accesses brokerage logins |
 
 All agents inherit the configured model defaults unless changed locally. The software-agent names are retained; the human owner's identity, profile, accounts, and private context are not.
 
