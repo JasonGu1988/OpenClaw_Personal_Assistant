@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "inventoryScope": "caller-visible; not a verified global inventory",
+  "inventoryObservedOn": "2026-10-10",
+  "privacy": "Sanitized definitions only. IDs, runtime state, ownership account/session keys, notification destinations, private prompts and financial datasets excluded. Restore user jobs disabled and reconnect local delivery explicitly.",
+  "jobs": [
+    {
+      "name": "heartbeat-main",
+      "agentId": "main",
+      "managed": true,
+      "enabledAtSnapshot": true,
+      "declarationKey": "heartbeat:main",
+      "schedule": {
+        "kind": "every",
+        "everyMs": 1800000
+      },
+      "sessionTarget": "main",
+      "wakeMode": "next-heartbeat",
+      "payload": {
+        "kind": "heartbeat"
+      },
+      "restore": "Managed by OpenClaw heartbeat configuration; do not create a duplicate ordinary cron job."
+    },
+    {
+      "name": "weekly-sanitized-github-backup",
+      "agentId": "main",
+      "managed": false,
+      "enabledAtSnapshot": true,
+      "schedule": {
+        "kind": "cron",
+        "expr": "0 2 * * 2",
+        "tz": "America/Los_Angeles",
+        "staggerMs": 0
+      },
+      "sessionTarget": "current",
+      "wakeMode": "now",
+      "payload": {
+        "kind": "agentTurn",
+        "message": "Backup checkout: {{BACKUP_CHECKOUT}}. Read and follow docs/BACKUP_UPDATE.md in that checkout. Update the public sanitized assistant backup only after privacy, secret, and integrity checks pass. Report updated, unchanged, or blocked without private details.",
+        "timeoutSeconds": 1200
+      },
+      "delivery": {
+        "mode": "announce"
+      },
+      "restore": "Replace the local checkout placeholder; create disabled and bind output to a local conversation after review."
+    }
+  ]
+}

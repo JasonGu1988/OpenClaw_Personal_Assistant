@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "note": "Assistant identities are software-agent names, not the human owner. Paths are relative to the local OpenClaw home. No auth state or private context is exported.",
+  "agents": [
+    {
+      "id": "main",
+      "name": "Adam",
+      "role": "coordinator",
+      "workspaceRelative": "workspace",
+      "templateDirectory": "workspace/main",
+      "modelPolicy": "inherit defaults",
+      "responsibilities": [
+        "Everyday work coordination",
+        "Email support",
+        "Technical investigation",
+        "Delegate coding to Tom and validate results"
+      ]
+    },
+    {
+      "id": "tom",
+      "name": "Tom",
+      "role": "coding",
+      "workspaceRelative": "workspace-tom",
+      "templateDirectory": "workspace/developer",
+      "modelPolicy": "inherit defaults",
+      "delegationOwner": "main",
+      "responsibilities": [
+        "Scoped implementation and debugging",
+        "Minimal changes and relevant verification",
+        "Return evidence to Adam"
+      ]
+    },
+    {
+      "id": "etienne",
+      "name": "Etienne",
+      "role": "research and reporting",
+      "workspaceRelative": "workspace-etienne",
+      "templateDirectory": "workspace/specialist",
+      "modelPolicy": "inherit defaults",
+      "responsibilities": [
+        "Evidence-based market research and reporting",
+        "Separate facts, thesis, and possible actions",
+        "Never trade, route orders, or access brokerage logins"
+      ]
+    }
+  ]
+}

@@ -9,13 +9,16 @@ ROOT = Path(__file__).resolve().parents[1]
 ALLOWED = {
     '.gitignore', 'README.md', 'MANIFEST.sha256',
     'config/openclaw.patch.json', 'config/telegram-disabled.patch.json',
+    'config/agents.json', 'config/automations.json',
+    'context/OPERATING_CONTEXT.md',
     'docs/INITIALIZATION.md', 'docs/GMAIL.md', 'docs/PRIVACY.md',
+    'docs/SCHEDULES.md', 'docs/BACKUP_UPDATE.md',
     'scripts/gmail_groomer.py', 'scripts/requirements-gmail-groomer.txt',
     'scripts/check_public_backup.py', 'tests/test_gmail_groomer.py',
 } | {
     f'workspace/{agent}/{name}.md'
     for agent in ('main', 'developer', 'specialist')
-    for name in ('AGENTS', 'SOUL', 'IDENTITY', 'USER', 'HEARTBEAT')
+    for name in ('AGENTS', 'SOUL', 'IDENTITY', 'USER', 'HEARTBEAT', 'CONTEXT')
 }
 PATTERNS = {
     'private key': r'-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----',

@@ -1,8 +1,8 @@
 # Public-backup policy
 
-This public repository contains allowlisted reusable code, synthetic tests, newly written generic templates, non-secret policy settings, and documentation. Raw private files were never staged.
+This public repository contains allowlisted reusable code, synthetic tests, sanitized software-agent definitions and operational context, non-secret policy settings, sanitized schedule templates, and documentation. Raw private files were never staged. Assistant names/IDs are retained; the human owner's identity is not.
 
-Configuration was constructed from explicit harmless selections. Human names, owner paths, account/group/chat IDs, bindings, access lists, tokens, provider sessions, and secret values were not copied. The classifier's owner name and personal billing assumption were generalized.
+Configuration was constructed from explicit harmless selections. Human-owner names, owner paths, account/group/chat IDs, bindings, access lists, tokens, provider sessions, and secret values were not copied. The classifier's owner name and personal billing assumption were generalized. Agent context is an authored operational summary, not exported conversations or private memory. Schedule templates retain cadence, timezone, agent role, and generic task intent while omitting original private payload details and runtime state.
 
 ## Never include
 

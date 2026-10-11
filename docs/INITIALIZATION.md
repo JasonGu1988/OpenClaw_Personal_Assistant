@@ -49,17 +49,17 @@ mkdir -p "$HOME/.openclaw/workspace"
 cp -n workspace/main/*.md "$HOME/.openclaw/workspace/"
 openclaw config set agents.entries.main.workspace "$HOME/.openclaw/workspace"
 
-openclaw agents add developer --workspace "$HOME/.openclaw/workspace-developer" --non-interactive
-openclaw agents add specialist --workspace "$HOME/.openclaw/workspace-specialist" --non-interactive
-cp -n workspace/developer/*.md "$HOME/.openclaw/workspace-developer/"
-cp -n workspace/specialist/*.md "$HOME/.openclaw/workspace-specialist/"
+openclaw agents add tom --workspace "$HOME/.openclaw/workspace-tom" --non-interactive
+openclaw agents add etienne --workspace "$HOME/.openclaw/workspace-etienne" --non-interactive
+cp -n workspace/developer/*.md "$HOME/.openclaw/workspace-tom/"
+cp -n workspace/specialist/*.md "$HOME/.openclaw/workspace-etienne/"
 ```
 
-Agent creation/onboarding may seed default files. Inspect those files and replace only generated identity/role templates with the corresponding repository templates after review; `cp -n` intentionally leaves them unchanged. Do not overwrite customized files without merging. Public IDs intentionally differ from private names on the source machine.
+Agent creation/onboarding may seed default files. Inspect those files and replace only generated identity/role templates with the corresponding repository templates after review; `cp -n` intentionally leaves them unchanged. Do not overwrite customized files without merging. `config/agents.json` preserves actual software-agent IDs/names; template folder labels `developer` and `specialist` are role labels, not runtime IDs. Each `CONTEXT.md` restores sanitized operating context rather than private memory.
 
 Edit `USER.md` only in runtime workspaces. Create memory locally only when there is concrete information to record. No private memory is recoverable here.
 
-Check agent auth visibility using `openclaw models status --agent developer` and `--agent specialist`; configure missing credentials through the installed local CLI. Do not copy credential files into Git.
+Check agent auth visibility using `openclaw models status --agent tom` and `--agent etienne`; configure missing credentials through the installed local CLI. Do not copy credential files into Git.
 
 ## 5. Optional Gmail helper
 
@@ -79,7 +79,7 @@ Use the installed channel setup wizard to authenticate a fresh bot. Define appro
 
 The Gmail helper expects `TELEGRAM_BOT_TOKEN` or a string token in local configuration. It does not resolve SecretRef objects; supply a local environment value when your channel uses a SecretRef. Never commit service-environment files.
 
-Recreate recurring jobs locally through the automation interface or `openclaw cron --help`. Do not publish private prompts or destinations. Start mailbox jobs in dry-run mode before enabling mutations or notifications.
+Restore the included sanitized job definitions using [SCHEDULES.md](SCHEDULES.md). They preserve verified schedules and generic task intent, not private prompts, data, or destinations. Inspect existing jobs first, create user jobs disabled, and bind delivery locally before enabling. The current export is caller-scoped rather than a complete Gateway inventory. Start any locally configured mailbox jobs in dry-run mode before enabling mutations or notifications.
 
 ## 7. Verify
 

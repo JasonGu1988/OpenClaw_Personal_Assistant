@@ -12,7 +12,7 @@ Observed on 2026-10-10:
 | Runtime | OpenClaw 2026.9.9 (`bcfc888`), macOS, Node.js 26.3.0 |
 | Python | Python 3.13.12; isolated virtual environment recommended |
 | Gateway | Local, loopback-only, port 18790, token authentication |
-| Agents | Main coordinator plus coding and specialist workspaces; public templates use generic identities |
+| Agents | Adam (`main`), Tom (`tom`), Etienne (`etienne`); software-agent identities retained, human profile excluded |
 | Default model | `openai/gpt-6.1-sol` |
 | Additional allowed models | `openai/gpt-6-astra`, `openai/gpt-6-sol`, `openai/gpt-6-luna` |
 | Heartbeat model | `openai/gpt-6-luna`, coordinated by `main` |
@@ -29,7 +29,11 @@ Model names reflect this installation's catalog, not guaranteed availability in 
 
 - `config/openclaw.patch.json`: allowlisted non-secret settings, merged into a freshly initialized configuration.
 - `config/telegram-disabled.patch.json`: messaging stays off until local setup is complete.
-- `workspace/`: newly written generic agent templates, not copies of private profiles.
+- `config/agents.json`: portable agent topology and role definitions.
+- `workspace/`: sanitized agent identities, operating principles, and `CONTEXT.md` summaries, not copies of private profiles.
+- `context/OPERATING_CONTEXT.md`: reusable coordination and continuity context; not private memory or chat history.
+- `config/automations.json`: sanitized definitions of the two currently visible jobs, with original cadence and timezone.
+- [Schedule restore guide](docs/SCHEDULES.md) and [weekly update contract](docs/BACKUP_UPDATE.md).
 - `scripts/gmail_groomer.py`: reusable source with owner-specific instructions generalized.
 - Python dependencies and synthetic tests.
 - [Initialization guide](docs/INITIALIZATION.md), [mail setup](docs/GMAIL.md), and [privacy policy](docs/PRIVACY.md).
@@ -40,7 +44,7 @@ Model names reflect this installation's catalog, not guaranteed availability in 
 
 Follow [docs/INITIALIZATION.md](docs/INITIALIZATION.md) to install OpenClaw, authenticate locally, merge configuration, and initialize workspaces.
 
-No scheduled jobs are automatically installed. Existing prompts, cron payloads, timing, recipients, and execution history are intentionally excluded; recreate only the jobs you need locally.
+Scheduled-job templates are included, but cloning does not install them. The managed heartbeat runs every 30 minutes; the backup job runs Tuesdays at 02:00 America/Los_Angeles. Restore user jobs disabled and reconnect delivery locally. The current scheduler inventory is caller-restricted, so this is not a verified export of every Gateway job. Private payload details, recipients, and execution history remain excluded.
 
 ## Excluded
 
